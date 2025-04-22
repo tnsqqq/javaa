@@ -33,5 +33,12 @@ class Operators {
     // contains element // O(n)
     System.out.println(list.contains(3));
 
+    // size
+    System.out.println(list.size());
+
+    for (int i = 0; i < list.size(); i++) {
+      System.out.print(list.get(i));
+    }
+    System.out.println();
   }
 }
