@@ -14,11 +14,13 @@ public class add {
 
   public static Node head;
   public static Node tail;
+  public static int size;
 
   public void addFirst(int data) {
     // step1 - create new node
 
     Node newNode = new Node(data);
+    size++;
 
     if (head == null) {
       head = tail = newNode;
@@ -36,6 +38,7 @@ public class add {
     // step1 - create new node
 
     Node newNode = new Node(data);
+    size++;
 
     if (head == null) {
       head = tail = newNode;
@@ -68,7 +71,10 @@ public class add {
       addFirst(data);
       return;
     }
+
     Node newNode = new Node(data);
+    size++;
+
     Node temp = head;
     int i = 0;
 
@@ -82,6 +88,24 @@ public class add {
     temp.next = newNode;
   }
 
+  public int removeFirst() {
+    if (size == 0) {
+      System.out.println("empty");
+      return Integer.MIN_VALUE;
+    }
+
+    if (size == 1) {
+      int val = head.data;
+      head = tail = null;
+      return val;
+    }
+
+    int val = head.data;
+    head = head.next;
+    size--;
+    return val;
+  }
+
   public static void main(String[] args) {
     // LinkedList ll = new LinkedList();
     add ll = new add();
@@ -91,12 +115,18 @@ public class add {
     // ll.print();
     ll.addFirst(1);
     // ll.print();
-    ll.addLast(3);
+    ll.addLast(5);
     // ll.print();
     ll.addLast(4);
-    ll.add(2, 9);
+    ll.add(2, 3);
 
     ll.print();
+
+    // System.out.println(ll.size);
+    ll.removeFirst();
+    ll.print();
+
+    // ll.print();
 
   }
 }
