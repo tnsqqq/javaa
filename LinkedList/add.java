@@ -132,6 +132,47 @@ public class add {
     return val;
   }
 
+  public int IterativeSearch(int key) { // O(n)
+    Node temp = head;
+    int i = 0;
+
+    while (temp != null) {
+      if (temp.data == key) {
+        return i; // key found
+      }
+
+      temp = temp.next;
+      i++;
+
+    }
+
+    // key not found
+    return -1;
+
+  }
+
+  public int helper(Node head, int key) { // O(n), O(n)
+    if (head == null) {
+      return -1;
+    }
+
+    if (head.data == key) {
+      return 0;
+    }
+
+    int idx = helper(head.next, key);
+    if (idx == -1) {
+      return -1;
+    }
+
+    return idx + 1;
+
+  }
+
+  public int recSearch(int key) {
+    return helper(head, key);
+  }
+
   public static void main(String[] args) {
     // LinkedList ll = new LinkedList();
     add ll = new add();
@@ -148,14 +189,20 @@ public class add {
 
     ll.print();
 
+    // System.out.println(ll.IterativeSearch(3));
+    // System.out.println(ll.IterativeSearch(10));
+
+    System.out.println(ll.recSearch(2));
+    System.out.println(ll.recSearch(10));
+
     // System.out.println(ll.size);
-    ll.removeFirst();
-    ll.print();
+    // ll.removeFirst();
+    // ll.print();
 
-    ll.removeLast();
-    ll.print();
+    // ll.removeLast();
+    // ll.print();
 
-    System.out.println(ll.size);
+    // System.out.println(ll.size);
 
     // ll.print();
 
