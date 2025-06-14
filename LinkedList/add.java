@@ -173,6 +173,21 @@ public class add {
     return helper(head, key);
   }
 
+  public void reverse() { // O(n)
+    Node prev = null;
+    Node curr = tail = head;
+    Node next;
+
+    while (curr != null) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    head = prev;
+  }
+
   public static void main(String[] args) {
     // LinkedList ll = new LinkedList();
     add ll = new add();
@@ -192,8 +207,8 @@ public class add {
     // System.out.println(ll.IterativeSearch(3));
     // System.out.println(ll.IterativeSearch(10));
 
-    System.out.println(ll.recSearch(2));
-    System.out.println(ll.recSearch(10));
+    // System.out.println(ll.recSearch(2));
+    // System.out.println(ll.recSearch(10));
 
     // System.out.println(ll.size);
     // ll.removeFirst();
@@ -205,6 +220,9 @@ public class add {
     // System.out.println(ll.size);
 
     // ll.print();
+
+    ll.reverse();
+    ll.print();
 
   }
 }
