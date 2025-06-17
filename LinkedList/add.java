@@ -188,6 +188,34 @@ public class add {
     head = prev;
   }
 
+  public void deleteNthNodeFromEnd(int n) {
+    // calculate size
+
+    int size = 0;
+    Node temp = head;
+    while (temp != null) {
+      temp = temp.next;
+      size++;
+    }
+
+    if (n == size) {
+      head = head.next; // removeFirst
+      return;
+    }
+
+    // size-n
+    int i = 1;
+    int iToFind = size - n;
+    Node prev = head;
+    while (i < iToFind) {
+      prev = prev.next;
+      i++;
+    }
+
+    prev.next = prev.next.next;
+    return;
+  }
+
   public static void main(String[] args) {
     // LinkedList ll = new LinkedList();
     add ll = new add();
@@ -202,6 +230,8 @@ public class add {
     ll.addLast(5);
     ll.add(2, 3);
 
+    ll.print();
+    ll.deleteNthNodeFromEnd(3);
     ll.print();
 
     // System.out.println(ll.IterativeSearch(3));
@@ -221,8 +251,8 @@ public class add {
 
     // ll.print();
 
-    ll.reverse();
-    ll.print();
+    // ll.reverse();
+    // ll.print();
 
   }
 }
