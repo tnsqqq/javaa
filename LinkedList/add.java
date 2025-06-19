@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+import java.util.*;
 
 public class add {
 
@@ -216,45 +216,105 @@ public class add {
     return;
   }
 
-  public static void main(String[] args) {
+  // Slow-Fast Approach
+  public Node findMid(Node head) { // helper
+    Node slow = head;
+    Node fast = head;
+
+    while (fast != null && fast.next != null) {
+      slow = slow.next; // +1
+      fast = fast.next.next; // +2
+    }
+    return slow; // slow is my midNode
+  }
+
+  public boolean checkPalindrome() {
+
+    if (head == null && head.next == null) {
+      return true;
+    }
+
+    // step1 - find mid Node
+    Node midNode = findMid(head);
+
+    // step2 - reverse 2nd half
+    Node prev = null;
+    Node curr = midNode;
+    Node next;
+
+    while (curr != null) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    Node right = prev; // right half head
+    Node left = head;
+
+    // step3 - check left half & right half
+    while (right != null) {
+      if (left.data != right.data) {
+        return false;
+      }
+      left = left.next;
+      right = right.next;
+    }
+    return true;
+  }
+
+  // public static void main(String[] args) {
+  // LinkedList ll = new LinkedList();
+  // add ll = new add();
+
+  // ll.print();
+  // ll.addFirst(2);
+  // ll.print();
+  // ll.addFirst(1);
+  // ll.print();
+  // ll.addLast(4);
+  // ll.print();
+  // ll.addLast(5);
+  // ll.add(2, 3);
+
+  // ll.print();
+  // ll.deleteNthNodeFromEnd(3);
+  // ll.print();
+
+  // System.out.println(ll.IterativeSearch(3));
+  // System.out.println(ll.IterativeSearch(10));
+
+  // System.out.println(ll.recSearch(2));
+  // System.out.println(ll.recSearch(10));
+
+  // System.out.println(ll.size);
+  // ll.removeFirst();
+  // ll.print();
+
+  // ll.removeLast();
+  // ll.print();
+
+  // System.out.println(ll.size);
+
+  // ll.print();
+
+  // ll.reverse();
+  // ll.print();
+
+  // }
+  // }
+
+  // O(n)
+
+  public static void main(String args[]) {
     // LinkedList ll = new LinkedList();
     add ll = new add();
+    ll.addLast(1);
+    ll.addLast(2);
+    ll.addLast(2);
+    ll.addLast(1);
 
-    // ll.print();
-    ll.addFirst(2);
-    // ll.print();
-    ll.addFirst(1);
-    // ll.print();
-    ll.addLast(4);
-    // ll.print();
-    ll.addLast(5);
-    ll.add(2, 3);
-
-    ll.print();
-    ll.deleteNthNodeFromEnd(3);
-    ll.print();
-
-    // System.out.println(ll.IterativeSearch(3));
-    // System.out.println(ll.IterativeSearch(10));
-
-    // System.out.println(ll.recSearch(2));
-    // System.out.println(ll.recSearch(10));
-
-    // System.out.println(ll.size);
-    // ll.removeFirst();
-    // ll.print();
-
-    // ll.removeLast();
-    // ll.print();
-
-    // System.out.println(ll.size);
-
-    // ll.print();
-
-    // ll.reverse();
-    // ll.print();
-
+    ll.print(); // 1->2->2->1
+    System.out.println(ll.checkPalindrome());
   }
 }
-
-// O(n)
