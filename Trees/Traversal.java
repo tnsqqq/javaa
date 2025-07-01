@@ -1,4 +1,4 @@
-public class Preorder {
+public class Traversal {
   static class Node {
     int data;
     Node left;
