@@ -263,6 +263,21 @@ public class add {
     return true;
   }
 
+  public static boolean isCycle() { // Floyd's CFA
+    Node slow = head;
+    Node fast = head;
+
+    while (fast != null && fast.next != null) {
+      slow = slow.next; // +1
+      fast = fast.next; // +2
+
+      if (slow == fast) { // cycle exists
+        return true;
+      }
+    }
+    return false; // cycle doesn't exists
+  }
+
   // public static void main(String[] args) {
   // LinkedList ll = new LinkedList();
   // add ll = new add();
@@ -308,13 +323,22 @@ public class add {
 
   public static void main(String args[]) {
     // LinkedList ll = new LinkedList();
-    add ll = new add();
-    ll.addLast(1);
-    ll.addLast(2);
-    ll.addLast(2);
-    ll.addLast(1);
+    // add ll = new add();
+    // ll.addLast(1);
+    // ll.addLast(2);
+    // ll.addLast(2);
+    // ll.addLast(1);
 
-    ll.print(); // 1->2->2->1
-    System.out.println(ll.checkPalindrome());
+    // ll.print(); // 1->2->2->1
+    // System.out.println(ll.checkPalindrome());
+
+    head = new Node(1);
+    head.next = new Node(2);
+    head.next.next = new Node(2);
+    head.next.next.next = head;
+    // 1->2->3->1
+
+    System.out.println(isCycle());
+
   }
 }
