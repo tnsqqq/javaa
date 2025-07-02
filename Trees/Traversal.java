@@ -76,7 +76,7 @@ public class Traversal {
             q.add(null);
           }
         } else {
-          System.out.println(curNode.data + " ");
+          System.out.print(curNode.data + " ");
           if (curNode.left != null) {
             q.add(curNode.left);
           }
@@ -96,7 +96,9 @@ public class Traversal {
 
     // tree.preorder(root);
     // tree.inorder(root);
-    tree.postorder(root);
+    // tree.postorder(root);
+
+    tree.levelOrder(root);
   }
 }
 
