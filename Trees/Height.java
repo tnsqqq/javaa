@@ -40,13 +40,13 @@ public class Height {
     return ls + rs + root.data;
   }
 
-  public static int diameter(Node root) { // O(n^2)
+  public static int diameter1(Node root) { // O(n^2) -> height is calculated seperately
     if (root == null) {
       return 0;
     }
 
-    int ldia = diameter(root.left);
-    int rdia = diameter(root.right);
+    int ldia = diameter1(root.left);
+    int rdia = diameter1(root.right);
 
     int lh = height(root.left);
     int rh = height(root.right);
@@ -54,6 +54,29 @@ public class Height {
     int selfdia = lh + rh + 1;
 
     return Math.max(selfdia, Math.max(ldia, rdia));
+  }
+
+  static class Info {
+    int d;
+    int ht;
+
+    public Info(int d, int ht) {
+      this.d = d;
+      this.ht = ht;
+    }
+  }
+
+  public static Info diameter2(Node root) { // O(n)
+    if (root == null) {
+      return new Info(0, 0);
+    }
+
+    Info lInfo = diameter2(root.left);
+    Info rInfo = diameter2(root.right);
+
+    int d = Math.max(Math.max(lInfo.d, rInfo.d), lInfo.ht + rInfo.ht + 1);
+    int ht = Math.max(lInfo.ht, rInfo.ht) + 1;
+    return new Info(d, ht);
   }
 
   public static void main(String[] args) {
@@ -75,7 +98,8 @@ public class Height {
     System.out.println(height(root));
     System.out.println(count(root));
     System.out.println(sum(root));
-    System.out.println(diameter(root));
+    System.out.println(diameter1(root));
+    System.out.println(diameter2(root).d);
   }
 }
 
