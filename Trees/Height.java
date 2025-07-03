@@ -40,6 +40,22 @@ public class Height {
     return ls + rs + root.data;
   }
 
+  public static int diameter(Node root) { // O(n^2)
+    if (root == null) {
+      return 0;
+    }
+
+    int ldia = diameter(root.left);
+    int rdia = diameter(root.right);
+
+    int lh = height(root.left);
+    int rh = height(root.right);
+
+    int selfdia = lh + rh + 1;
+
+    return Math.max(selfdia, Math.max(ldia, rdia));
+  }
+
   public static void main(String[] args) {
 
     // 1
@@ -59,5 +75,8 @@ public class Height {
     System.out.println(height(root));
     System.out.println(count(root));
     System.out.println(sum(root));
+    System.out.println(diameter(root));
   }
 }
+
+// Diameter - no. of nodes in the longest path between 2 leaves.
