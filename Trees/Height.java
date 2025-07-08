@@ -150,6 +150,20 @@ public class Height {
     System.out.println();
   }
 
+  public static void KLevel(Node root, int level, int k) {
+    if (root == null) {
+      return;
+    }
+
+    if (level == k) {
+      System.out.print(root.data + " ");
+      return;
+    }
+
+    KLevel(root.left, level + 1, k);
+    KLevel(root.right, level + 1, k);
+  }
+
   public static void main(String[] args) {
 
     // 1
@@ -172,7 +186,10 @@ public class Height {
     // System.out.println(diameter1(root));
     // System.out.println(diameter2(root).d);
 
-    topView(root);
+    // topView(root);
+
+    int k = 2;
+    KLevel(root, 1, k);
   }
 }
 
