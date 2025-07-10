@@ -16,15 +16,15 @@ public class Traversal {
   static class BinaryTree {
     static int idx = -1;
 
-    public static Node builTree(int nodes[]) {
+    public static Node buildTree(int nodes[]) {
       idx++;
       if (nodes[idx] == -1) {
         return null;
       }
 
       Node newNode = new Node(nodes[idx]);
-      newNode.left = builTree(nodes);
-      newNode.right = builTree(nodes);
+      newNode.left = buildTree(nodes);
+      newNode.right = buildTree(nodes);
 
       return newNode;
     }
@@ -91,7 +91,7 @@ public class Traversal {
   public static void main(String[] args) {
     int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
     BinaryTree tree = new BinaryTree();
-    Node root = tree.builTree(nodes);
+    Node root = tree.buildTree(nodes);
     // System.out.println(root.data);
 
     // tree.preorder(root);

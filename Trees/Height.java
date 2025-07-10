@@ -99,6 +99,22 @@ public class Height {
   // return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
   // }
 
+  // class Solution {
+  // public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+  // if (root == null) return false;
+  // if (isSameTree(root, subRoot)) return true;
+  // return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+  // }
+
+  // private boolean isSameTree(TreeNode s, TreeNode t) {
+  // if (s == null && t == null) return true;
+  // if (s == null || t == null) return false;
+  // if (s.val != t.val) return false;
+
+  // return isSameTree(s.left, t.left) && isSameTree(s.right, t.right);
+  // }
+  // }
+
   static class Info {
     Node node;
     int hd;
@@ -241,6 +257,10 @@ public class Height {
     root.left.right = new Node(5);
     root.right.left = new Node(6);
     root.right.right = new Node(7);
+
+    // Node subRoot = new Node(2);
+    // subRoot.left = new Node(4);
+    // subRoot.right = new Node(5);
 
     // System.out.println(height(root));
     // System.out.println(count(root));
