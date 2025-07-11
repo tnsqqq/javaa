@@ -37,7 +37,7 @@ public class MaximumPathSum {
   }
 }
 
-// Maximum Path Sum
+// Maximum Path Sum in a Binary Tree
 
 // Time - O(N)
 // Space - O(H)
