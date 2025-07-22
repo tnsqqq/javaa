@@ -19,6 +19,10 @@ public class Insert {
         arr.set(par, temp);
       }
     }
+
+    public int peek() {
+      return arr.get(0);
+    }
   }
 
   public static void main(String[] args) {
@@ -29,6 +33,7 @@ public class Insert {
     heap.add(5);
     heap.add(20);
     System.out.println(heap.arr);
+    System.out.println(heap.peek());
 
   }
 }
