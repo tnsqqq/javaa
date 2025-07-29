@@ -129,7 +129,7 @@ public class Height {
   public static void topView(Node root) {
 
     Queue<Info> q = new LinkedList<>();
-    HashMap<Integer, Node> map = new HashMap<>();
+    hashmap<Integer, Node> map = new hashmap<>();
 
     int max = 0, min = 0;
     q.add(new Info(root, 0));
