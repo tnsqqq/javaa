@@ -65,3 +65,16 @@ public class Hashmap {
 // remove(key)
 
 // hashmap -> unordered
+
+// Implementation HashMap
+// 1. put (key, value)
+// n= nodes / pairs
+// N= buckets
+
+// 1. hashf(x) -> bi
+// 2. Loop LL in the bucket
+// if found -> update
+// else -> add new node in LL
+
+// worst case - O(n)
+// most cases - O(1)
