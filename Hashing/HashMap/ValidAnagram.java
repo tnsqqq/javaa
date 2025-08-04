@@ -2,6 +2,7 @@ import java.util.*;
 
 public class ValidAnagram { // O(n), where n is no of characters in string, worst case -> n^2
 
+
   public static boolean isAnagram(String s, String t) {
     if (s.length() != t.length()) {
       return false;
