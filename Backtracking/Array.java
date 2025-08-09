@@ -9,8 +9,8 @@ public class Array {
 
     // recursion
     arr[i] = val;
-    changeArr(arr, i + 1, val + 1);
-    arr[i] = arr[i] - 2;
+    changeArr(arr, i + 1, val + 1); // fnx call step
+    arr[i] = arr[i] - 2; // backtracking step
 
   }
 
@@ -28,3 +28,5 @@ public class Array {
 
   }
 }
+
+// O(n)
