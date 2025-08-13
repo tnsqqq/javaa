@@ -25,22 +25,44 @@ public class NQueens { // O(n!)
     return true;
   }
 
-  public static void nQueens(char board[][], int row) {
+  // public static void nQueens(char board[][], int row) {
+  // // base case
+  // if (row == board.length) {
+  // // printBoard(board);
+  // count++;
+  // return;
+  // }
+
+  // // column loop
+  // for (int j = 0; j < board.length; j++) {
+  // if (isSafe(board, row, j)) {
+  // board[row][j] = 'Q';
+  // nQueens(board, row + 1); // function call
+  // board[row][j] = 'x'; // backtracking step
+  // }
+  // }
+  // }
+
+  public static boolean nQueens(char board[][], int row) {
     // base case
     if (row == board.length) {
       // printBoard(board);
       count++;
-      return;
+      return true;
     }
 
     // column loop
     for (int j = 0; j < board.length; j++) {
       if (isSafe(board, row, j)) {
         board[row][j] = 'Q';
-        nQueens(board, row + 1); // function call
+        if (nQueens(board, row + 1)) {
+          return true;
+        }
+        ; // function call
         board[row][j] = 'x'; // backtracking step
       }
     }
+    return false;
   }
 
   static int count = 0;
@@ -65,8 +87,15 @@ public class NQueens { // O(n!)
       }
     }
 
-    nQueens(board, 0);
-    System.out.println(count);
+    // nQueens(board, 0);
+    // System.out.println(count);
+
+    if (nQueens(board, 0)) {
+      System.out.println("Solution is possible!");
+      printBoard(board);
+    } else {
+      System.out.println("Solution is not possible!");
+    }
   }
 
 }
