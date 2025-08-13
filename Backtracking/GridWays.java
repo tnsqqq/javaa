@@ -1,4 +1,4 @@
-public class GridWays {
+public class GridWays { // O(2^n+m) exponential
 
   public static int gridWays(int i, int j, int n, int m) {
     // base case
@@ -18,3 +18,7 @@ public class GridWays {
     System.out.println(gridWays(0, 0, n, m));
   }
 }
+
+// Math Trick for Linear Time
+// Permutation -> (n-1 + m-1)!/(n-1)!(m-1)! = total ways
+// O(n+m)
