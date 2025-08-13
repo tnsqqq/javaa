@@ -1,4 +1,4 @@
-public class NQueens {
+public class NQueens { // O(n!)
 
   public static boolean isSafe(char board[][], int row, int col) {
     // vertical up
@@ -28,7 +28,8 @@ public class NQueens {
   public static void nQueens(char board[][], int row) {
     // base case
     if (row == board.length) {
-      printBoard(board);
+      // printBoard(board);
+      count++;
       return;
     }
 
@@ -42,6 +43,8 @@ public class NQueens {
     }
   }
 
+  static int count = 0;
+
   public static void printBoard(char board[][]) {
     System.out.println("---- chess board ----");
     for (int i = 0; i < board.length; i++) {
@@ -53,7 +56,7 @@ public class NQueens {
   }
 
   public static void main(String[] args) {
-    int n = 5;
+    int n = 4;
     char board[][] = new char[n][n];
     // initialize
     for (int i = 0; i < n; i++) {
@@ -63,6 +66,7 @@ public class NQueens {
     }
 
     nQueens(board, 0);
+    System.out.println(count);
   }
 
 }
